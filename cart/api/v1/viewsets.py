@@ -1,6 +1,6 @@
 from rest_framework import authentication
-from cart.models import Contents, Product
-from .serializers import ContentsSerializer, ProductSerializer
+from cart.models import Content, Product
+from .serializers import ContentSerializer, ProductSerializer
 from rest_framework import viewsets
 
 
@@ -13,10 +13,10 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
 
 
-class ContentsViewSet(viewsets.ModelViewSet):
-    serializer_class = ContentsSerializer
+class ContentViewSet(viewsets.ModelViewSet):
+    serializer_class = ContentSerializer
     authentication_classes = (
         authentication.SessionAuthentication,
         authentication.TokenAuthentication,
     )
-    queryset = Contents.objects.all()
+    queryset = Content.objects.all()

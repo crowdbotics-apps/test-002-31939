@@ -17,27 +17,27 @@ class Product(models.Model):
     )
 
 
-class Contents(models.Model):
+class Content(models.Model):
     "Generated Model"
     quantity = models.SmallIntegerField()
     sales_price = models.DecimalField(
-        max_digits=4,
-        decimal_places=2,
         null=True,
         blank=True,
+        max_digits=4,
+        decimal_places=2,
     )
     product = models.ForeignKey(
         "cart.Product",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="contents_product",
     )
     user = models.ForeignKey(
         "users.User",
-        on_delete=models.CASCADE,
         null=True,
         blank=True,
+        on_delete=models.CASCADE,
         related_name="contents_user",
     )
 
